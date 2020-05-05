@@ -117,7 +117,7 @@ RealVariable& solver::operator-(solver::RealVariable x, double y) {
 }
 double solver::solve(RealVariable x){
     if(x.a==0){
-       // if(x.b == 0 ) throw std::invalid_argument("cant diving by 0");
+        if(x.b == 0 ) throw std::invalid_argument("cant diving by 0");
         double ans = -(x.c)/x.b;
         return ans;
     }
@@ -239,7 +239,7 @@ ComplexVariable& solver::operator==(complex<double> y,solver::ComplexVariable x)
 complex<double> solver::solve(ComplexVariable x) {
     complex<double> ans;
     if (x.a == 0.0) {
-        //if(x.b == 0.0) throw std::invalid_argument("cant diving by 0");
+        if(x.b == 0.0) throw std::invalid_argument("cant diving by 0");
         ans = -(x.c) / x.b;
         return ans;
     } else if (x.a != 0.0) {
