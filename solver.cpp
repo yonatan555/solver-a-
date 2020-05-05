@@ -118,11 +118,11 @@ RealVariable& solver::operator-(solver::RealVariable x, double y) {
 RealVariable& RealVariable::operator()(RealVariable& rv)
 {
     RealVariable* ret;
-    ret.b = 0;
+    ret->b = 0;
 
-    ret.a = rv.a;
-    ret.b = rv.b;
-    ret.c = rv.c;
+    ret->a = rv.a;
+    ret->b = rv.b;
+    ret->c = rv.c;
 
     return *ret;
 
