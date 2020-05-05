@@ -115,16 +115,16 @@ RealVariable& solver::operator-(solver::RealVariable x, double y) {
     n->c = x.c - y ;
     return *n;
 }
-RealVariable RealVariable::operator()(RealVariable& rv)
+RealVariable& RealVariable::operator()(RealVariable& rv)
 {
-    RealVariable ret;
+    RealVariable* ret;
     ret.b = 0;
 
     ret.a = rv.a;
     ret.b = rv.b;
     ret.c = rv.c;
 
-    return ret;
+    return *ret;
 
 }
 double solver::solve(RealVariable x){
@@ -184,11 +184,11 @@ ComplexVariable& solver::operator+(solver::ComplexVariable x, complex<double>  y
     n->c = x.c + y ;
     return *n;
 }
-ComplexVariable ComplexVariable::operator()(ComplexVariable& var)
+ComplexVariable& ComplexVariable::operator()(ComplexVariable& var)
 {
-    ComplexVariable ans;
+    ComplexVariable* ans;
 
-    return ans;
+    return *ans;
 
 }
 ComplexVariable& solver::operator+(solver::ComplexVariable x, solver::ComplexVariable y) {
