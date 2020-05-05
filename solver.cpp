@@ -115,6 +115,18 @@ RealVariable& solver::operator-(solver::RealVariable x, double y) {
     n->c = x.c - y ;
     return *n;
 }
+RealVariable RealVariable::operator()(RealVariable& rv)
+{
+    RealVariable ret;
+    ret.b = 0;
+
+    ret.a = rv.a;
+    ret.b = rv.b;
+    ret.c = rv.c;
+
+    return ret;
+
+}
 double solver::solve(RealVariable x){
     if(x.a==0){
         if(x.b == 0 ) throw std::invalid_argument("cant diving by 0");
@@ -172,6 +184,13 @@ ComplexVariable& solver::operator+(solver::ComplexVariable x, complex<double>  y
     n->c = x.c + y ;
     return *n;
 }
+ComplexVariable ComplexVariable::operator()(ComplexVariable& var)
+{
+    ComplexVariable ans;
+
+    return ans;
+
+}
 ComplexVariable& solver::operator+(solver::ComplexVariable x, solver::ComplexVariable y) {
     ComplexVariable* n = new ComplexVariable() ;
     n->a=x.a+y.a;
@@ -201,6 +220,7 @@ ComplexVariable& solver::operator/(solver::ComplexVariable  x,double num){
     n->c=x.c/num;
     return *n;
 }
+
 ComplexVariable& solver::operator-(solver::ComplexVariable x, complex<double>  y) {
     ComplexVariable* n = new ComplexVariable() ;
     n->a=x.a;
